@@ -1,0 +1,24 @@
+project_name: getrand
+build:
+  binary: mage
+  main: .
+  goos:
+    - darwin
+    - linux
+    - windows
+  goarch:
+    - amd64
+    - 386
+    - arm
+    - arm64
+  env:
+    - CGO_ENABLED=0
+archive:
+  name_template: "{{.Binary}}_{{.Version}}_{{.Os}}-{{.Arch}}"
+  files:
+    - LICENSE
+release:
+  github:
+    owner: mbialon
+    name: getrand
+  draft: false
